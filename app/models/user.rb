@@ -20,6 +20,13 @@ class User < ActiveRecord::Base
 		:presence => true,
 		:confirmation => true
 
+	before_save :encode_password
+
+private
+  def encode_password
+    self.password = Digest::MD5.hexdigest(password)
+  end
+
 public
   def self.authenticate(email, password)
     return false if email.nil? or password.nil? 
@@ -29,6 +36,6 @@ public
 
     return false if u.nil?
     return false if Digest::MD5.hexdigest(password) != u.password
-    return true
+    return u 
   end
 end

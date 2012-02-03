@@ -1,7 +1,8 @@
 Moolab::Application.routes.draw do
   get "pages/home"
 
-  get "pages/register"
+  post "pages/login"
+  get "pages/logout"
 
   resources :users
 

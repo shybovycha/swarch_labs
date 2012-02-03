@@ -1,5 +1,5 @@
-<%= form_for User.new do |f| %>
-  Email: <%= f.text_field :email %><br />
-  Password: <%= f.password_field :password %><br />
-  <%= f.submit %>
+<%= form_tag '/pages/login' do %>
+  Email: <%= text_field_tag :email %><br />
+  Password: <%= password_field_tag :password %><br />
+  <%= submit_tag 'Ok' %>
 <% end %>

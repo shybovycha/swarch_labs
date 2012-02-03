@@ -1,5 +1,7 @@
 <h1>Welcome to my homepage!</h1>
 
+<%= flash[:error] %>
+
 <%= render 'pages/login' %>
 
 <%= link_to "Register", :controller => :users, :action => :new %>
